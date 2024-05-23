@@ -1,35 +1,43 @@
-    def test_enumerate_list(self):
-        list1 = ["Red", "Green", "", "", "White", "", "Black"]
-        result1 = ex1.enumerate_list(list1)
-        expected1 = ["0. Red", "1. Green", "2. White", "3. Black"]
-        self.assertEqual(expected1, result1)
+    def index_of_by_index(string, lst, start_index):
+    try:
+        return lst.index(string, start_index)
+    except ValueError:
+        return -1
+def index_of_empty(lst):
+    try:
+        return lst.index(" ")
+    except ValueError:
+        return -1
+def index_of(string, lst):
+    try:
+        return lst.index(string)
+    except ValueError:
+        return -1
 
-        list2 = ['Audi']
-        result2 = ex1.enumerate_list(list2)
-        expected2 = ["0. Audi"]
-        self.assertEqual(expected2, result2)
+def put(string, lst):
+    index = index_of_empty(lst)
+    if index != -1:
+        lst[index] = string
+    return index
 
-        list3 = []
-        result3 = ex1.enumerate_list(list3)
-        expected3 = []
-        self.assertEqual(expected3, result3)
+def remove(string, lst):
+    count = 0
+    for i in range(len(lst)):
+        if lst[i] == string:
+            lst[i]=" "
+            count += 1
+        return count
 
-    def test_enumerate_backwards(self):
-        list1 = ["Red", "Green", "", "White", "Black"]
-        result1 = ex1.enumerate_backwards(list1)
-        expected1 = ["0. deR", "1. neerG", "2. etihW", "3. kcalB"]
-        self.assertEqual(expected1, result1)
-
-        list2 = []
-        result2 = ex1.enumerate_backwards(list2)
-        expected2 = []
-        self.assertEqual(expected2, result2)
-
-        list3 = ['Audi', ""]
-        result3 = ex1.enumerate_backwards(list3)
-        expected3 = ["0. iduA"]
-        self.assertEqual(expected3, result3)
-
-
-if __name__ == '__main__':
-    unittest.main()
+colors = ["Red", "Green", "White", "Black", "Pink","Yellow","Black"]
+print(index_of("Black", colors))
+print(index_of("Blue", colors))
+print(index_of_by_index("Black", colors,1))
+print(index_of_by_index("Black", colors,4))
+print(index_of_by_index("Green", colors,2))
+colors1 = ["Red", "Green", " ", " ", "Pink"," ","Black"]
+colors2 = ["Red", "Green", "White", "Black", "Pink","Yellow","Black"]
+print(index_of_empty(colors1))
+print(index_of_empty(colors2))
+print(put("Blue", colors1))
+print(remove("Black", colors))
+print(remove("Blue", colors))
