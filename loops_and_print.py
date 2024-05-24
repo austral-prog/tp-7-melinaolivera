@@ -1,43 +1,22 @@
-    def index_of_by_index(string, lst, start_index):
-    try:
-        return lst.index(string, start_index)
-    except ValueError:
-        return -1
-def index_of_empty(lst):
-    try:
-        return lst.index(" ")
-    except ValueError:
-        return -1
-def index_of(string, lst):
-    try:
-        return lst.index(string)
-    except ValueError:
-        return -1
+   def enumerate_list(list):
 
-def put(string, lst):
-    index = index_of_empty(lst)
-    if index != -1:
-        lst[index] = string
-    return index
+    lists = []
+    lists2 = []
+    for e in list:
+        if e != "":
+            lists.append(e)
+    for i, e in enumerate(lists[0:]):
+        lists2.append(f"{i}. {e}")
+    return lists2
 
-def remove(string, lst):
-    count = 0
-    for i in range(len(lst)):
-        if lst[i] == string:
-            lst[i]=" "
-            count += 1
-        return count
-
-colors = ["Red", "Green", "White", "Black", "Pink","Yellow","Black"]
-print(index_of("Black", colors))
-print(index_of("Blue", colors))
-print(index_of_by_index("Black", colors,1))
-print(index_of_by_index("Black", colors,4))
-print(index_of_by_index("Green", colors,2))
-colors1 = ["Red", "Green", " ", " ", "Pink"," ","Black"]
-colors2 = ["Red", "Green", "White", "Black", "Pink","Yellow","Black"]
-print(index_of_empty(colors1))
-print(index_of_empty(colors2))
-print(put("Blue", colors1))
-print(remove("Black", colors))
-print(remove("Blue", colors))
+#retorna la lista:
+# ["0. Red", "1. Green", "2. White", "3. Black"]
+def enumerate_backwards(list):
+    lists = []
+    lists2 = []
+    for e in list:
+        if e != "":
+            lists.append(e[::-1])
+    for i, e in enumerate(lists[0:]):
+        lists2.append(f"{i}. {e}")
+    return lists2
