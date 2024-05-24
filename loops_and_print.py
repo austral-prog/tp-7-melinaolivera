@@ -1,19 +1,22 @@
-   def enumerate_list(strings):
-    result = []
-    for index, value in enumerate(strings):
-        if value:  
-            result.append(f"{index}. {value}")
-    return result
+   def enumerate_list(list):
 
-colors = ["Red", "Green", "", "White", "Black"]
-print(enumerate_list(colors))  
+    lists = []
+    lists2 = []
+    for e in list:
+        if e != "":
+            lists.append(e)
+    for i, e in enumerate(lists[0:]):
+        lists2.append(f"{i}. {e}")
+    return lists2
 
-def enumerate_backwards(strings):
-    result = []
-    for index, value in enumerate(strings):
-        if value: 
-            result.append(f"{index}. {value[::-1]}")
-    return result
-
-colors = ["Red", "Green", "", "White", "Black"]
-print(enumerate_backwards(colors)) 
+#retorna la lista:
+# ["0. Red", "1. Green", "2. White", "3. Black"]
+def enumerate_backwards(list):
+    lists = []
+    lists2 = []
+    for e in list:
+        if e != "":
+            lists.append(e[::-1])
+    for i, e in enumerate(lists[0:]):
+        lists2.append(f"{i}. {e}")
+    return lists2
