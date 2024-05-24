@@ -1,4 +1,4 @@
-   def enumerate_list(list):
+def enumerate_list(list):
 
     lists = []
     lists2 = []
